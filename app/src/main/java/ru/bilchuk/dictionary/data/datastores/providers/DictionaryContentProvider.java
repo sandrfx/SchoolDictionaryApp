@@ -15,14 +15,14 @@ import ru.bilchuk.dictionary.data.datastores.db.DBOpenHelper;
 
 public class DictionaryContentProvider extends ContentProvider {
 
-    private static final UriMatcher uriMatcer;
+    private static final UriMatcher uriMatcher;
 
     private static final int PATH_ROOT = 0;
     private static final int PATH_TRANSLATIONS = 1;
 
     static {
-        uriMatcer = new UriMatcher(PATH_ROOT);
-        uriMatcer.addURI(DictionaryProviderMetaData.AUTHORITY, DictionaryProviderMetaData.TRANSLATES_CONTENT_PATH,
+        uriMatcher = new UriMatcher(PATH_ROOT);
+        uriMatcher.addURI(DictionaryProviderMetaData.AUTHORITY, DictionaryProviderMetaData.TRANSLATES_CONTENT_PATH,
                 PATH_TRANSLATIONS);
     }
 
@@ -31,14 +31,14 @@ public class DictionaryContentProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
         dbOpenHelper = new DBOpenHelper(getContext());
-        return false;
+        return true;
     }
 
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection,
                         @Nullable String[] selectionArgs, @Nullable String orderBy) {
-        switch (uriMatcer.match(uri)) {
+        switch (uriMatcher.match(uri)) {
             case PATH_TRANSLATIONS:
                 return dbOpenHelper.getReadableDatabase().query(DBMetaData.TranslationTableMetaData.TABLE_NAME,
                         projection, selection, selectionArgs, null, null, orderBy);
@@ -50,7 +50,7 @@ public class DictionaryContentProvider extends ContentProvider {
     @Nullable
     @Override
     public String getType(@NonNull Uri uri) {
-        switch (uriMatcer.match(uri)) {
+        switch (uriMatcher.match(uri)) {
             case PATH_TRANSLATIONS:
                 return DictionaryProviderMetaData.TRANSLATION_CONTENT_TYPE;
             default:
@@ -61,7 +61,7 @@ public class DictionaryContentProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        switch (uriMatcer.match(uri)) {
+        switch (uriMatcher.match(uri)) {
             case PATH_TRANSLATIONS:
                 dbOpenHelper.getWritableDatabase().insert(DBMetaData.TranslationTableMetaData.TABLE_NAME,
                         null, contentValues);
@@ -91,4 +91,3 @@ public class DictionaryContentProvider extends ContentProvider {
         }
     }
 }
-
