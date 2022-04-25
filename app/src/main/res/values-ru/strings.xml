@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Словарь</string>
+    <string name="add_word">Добавить слово</string>
+    <string name="keyword">Слово:</string>
+    <string name="translation">Перевод:</string>
+    <string name="enter_keyword">Введите слово</string>
+    <string name="enter_translation">Введите перевод</string>
+    <string name="add">Добавить</string>
+    <string name="input_error">Ошибка ввода</string>
+</resources>
