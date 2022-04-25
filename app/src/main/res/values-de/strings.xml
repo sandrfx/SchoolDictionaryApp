@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Wörterbuch</string>
+    <string name="add_word">Wort hinzufügen</string>
+    <string name="keyword">Schlüsselwort:</string>
+    <string name="translation">Übersetzung:</string>
+    <string name="enter_keyword">Geben Sie ein Schlüsselwort ein</string>
+    <string name="enter_translation">Geben Sie eine Übersetzung ein</string>
+    <string name="add">Eingabefehler</string>
+    <string name="input_error">Eingabefehler</string>
+</resources>
