@@ -1,4 +1,4 @@
-# SchoolDictionaryApp
+#  SchoolDictionaryApp 
 Test application written as an example for a practical lesson for students at Sberbank Android School (https://sbergraduate.ru/android-Школа/) which demonstrates basics of Content Providers in Android.
 
 ![Alt text](/sc_dictionary.png?raw=true "SchoolDictionaryApp screenshot 1")
